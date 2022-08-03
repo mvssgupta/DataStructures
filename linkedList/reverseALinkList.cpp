@@ -11,6 +11,8 @@ struct Node
     Node(int x, Node *next) : val(x), next(next) {}
 };
 
+//*Time complexity : O(length(Linkedlist))
+//*space complexity : O(1) constant space.
 Node *reverseLinkedList(Node *head)
 {
     Node *dummyNode = NULL;
