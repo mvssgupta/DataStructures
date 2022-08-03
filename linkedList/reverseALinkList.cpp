@@ -8,7 +8,7 @@ struct Node
     Node *next;
     Node() : val(0), next(nullptr) {}
     Node(int x) : val(x), next(nullptr) {}
-    Node(int x, Node *next) : val(0), next(next) {}
+    Node(int x, Node *next) : val(x), next(next) {}
 };
 
 Node *reverseLinkedList(Node *head)
