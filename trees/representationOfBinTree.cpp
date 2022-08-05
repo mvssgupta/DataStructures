@@ -25,8 +25,8 @@ void PreOrderRepresentation(Node *root)
     if (root != NULL)
     {
         cout << root->val << " ";
-        InOrderRepresentation(root->left);
-        InOrderRepresentation(root->right);
+        PreOrderRepresentation(root->left);
+        PreOrderRepresentation(root->right);
     }
 }
 
@@ -34,8 +34,8 @@ void PostOrderRepresentation(Node *root)
 {
     if (root != NULL)
     {
-        InOrderRepresentation(root->left);
-        InOrderRepresentation(root->right);
+        PostOrderRepresentation(root->left);
+        PostOrderRepresentation(root->right);
         cout << root->val << " ";
     }
 }
@@ -45,13 +45,19 @@ int main()
 
     //? Binary tree representation
 
-    //!     3
-    //!    / \
-    //!   4   5
+    //!        1
+    //!      /  \
+    //!     2    3
+    //!   /  \  / \
+    //! 4    5 6   7
 
-    Node *root = new Node(3);
-    root->left = new Node(4);
-    root->right = new Node(5);
+    Node *root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    root->right->left = new Node(6);
+    root->right->right = new Node(7);
     cout << "PreOrder Representation of the given tree is : " << endl;
     PreOrderRepresentation(root);
     cout << endl;
