@@ -1,0 +1,11 @@
+Definition : A function calling itself until it met some condition(generally called as base condition)
+
+If we dont write the base case then it will call itself infinitely 
+which causes stack overflow . 
+
+
+
+while it is calling itself a recursion stack is maintained . 
+If we call continuosly with out specifying the base condition then 
+we will get an error called stack overflow , which means the stack is full
+no more furthur calls happen.
