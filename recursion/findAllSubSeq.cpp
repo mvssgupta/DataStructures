@@ -4,7 +4,7 @@ using namespace std;
 
 ///subsequence def : A contiguous or non contigous sequence which follow the order
 ///for example : for [1 2 4]  the subsequenes are :- {},{1},{2},{4},{1,2},{1,4},{2,4},{1,2,4}
-void findAllSubSeq(int i , vector<int> v , int arr[],int n)
+void findAllSubSeq(int i , vector<int> &v , int arr[],int n)
 {
     if(i>=n)
     {
