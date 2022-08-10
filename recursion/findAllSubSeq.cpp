@@ -2,6 +2,20 @@
 using namespace std;
 #define debug(x) cout<<#x<<" "<<x<<endl;
 
+
+//*time complexity : O(2^n*n)
+///since we are considering or not considering and element and we are doing this for the whole array
+//*space complexity : O(n) , since we make at max n recursion calls in one side
+
+///for example : for {1,2,4} 
+/*
+/           take 1 :- {1}
+/           /
+/         take 2:- {1,2}
+/          /
+/        take 4:- {1,2,4}
+*/
+
 ///subsequence def : A contiguous or non contigous sequence which follow the order
 ///for example : for [1 2 4]  the subsequenes are :- {},{1},{2},{4},{1,2},{1,4},{2,4},{1,2,4}
 void findAllSubSeq(int i , vector<int> &v , int arr[],int n)
