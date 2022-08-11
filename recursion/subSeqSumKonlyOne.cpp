@@ -10,7 +10,7 @@ using namespace std;
 /// and by changing it to false and then we can stop furthur recursion , which is 
 ///called as parameterised way. 
 bool flag = true;
-Poid paramsubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
+Poid ParamSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
 {
     if (i == n)
     {
@@ -27,12 +27,12 @@ Poid paramsubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int 
     //*take
     v.push_back(arr[i]);
     sum = sum + arr[i];
-    ParamsubSeqWhoseSumK(i + 1, v, k, sum, arr, n);
+    ParamSubSeqWhoseSumK(i + 1, v, k, sum, arr, n);
 
     //*not take
     sum = sum - arr[i];
     v.pop_back();
-    ParamsubSeqWhoseSumK(i + 1, v, k, sum, arr, n);
+    ParamSubSeqWhoseSumK(i + 1, v, k, sum, arr, n);
 }
 
 
@@ -40,7 +40,7 @@ Poid paramsubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int 
 ///we can also do it by using functional way which means we have to return
 ///something from a function instead of passing a parameter and checking
 ///here we are returning true if we got the answer and stopping the other recursion calls
-bool funsubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
+bool funSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
 {
     if (i == n)
     {
@@ -59,7 +59,7 @@ bool funsubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
     sum = sum + arr[i];
     ///if we get an answer we have to return true
     ///if we get false then we have to goto not take conditon also.
-    if (subSeqWhoseSumK(i + 1, v, k, sum, arr, n))
+    if (funSubSeqWhoseSumK(i + 1, v, k, sum, arr, n))
         return true;
 
     //*not take
@@ -67,7 +67,7 @@ bool funsubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
     v.pop_back();
 
     ///here also same , if we get the answer then also we should return true
-    if (subSeqWhoseSumK(i + 1, v, k, sum, arr, n))
+    if (funSubSeqWhoseSumK(i + 1, v, k, sum, arr, n))
         return true;
     return false;
 }
@@ -88,6 +88,6 @@ int main()
     vector<int> v;
     v.clear();
     int n = sizeof(arr) / sizeof(arr[0]);
-    ParamsubSeqWhoseSumK(0, v, 2, 0, arr, n);
+    ParamSubSeqWhoseSumK(0, v, 2, 0, arr, n);
     return 0;
 }
