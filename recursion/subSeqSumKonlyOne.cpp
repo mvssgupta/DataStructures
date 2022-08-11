@@ -6,11 +6,11 @@ using namespace std;
 /// we are asked to print only one subsequene which
 /// satisifies the given condition , instead of all subsequences
 
-///for only printing one subsequence we can have an global variable like flag
-/// and by changing it to false and then we can stop furthur recursion , which is 
-///called as parameterised way. 
+/// for only printing one subsequence we can have an global variable like flag
+///  and by changing it to false and then we can stop furthur recursion , which is
+/// called as parameterised way.
 bool flag = true;
-Poid ParamSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
+void ParamSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
 {
     if (i == n)
     {
@@ -19,7 +19,7 @@ Poid ParamSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int 
             for (int i = 0; i < v.size(); i++)
                 cout << v[i] << " ";
             cout << endl;
-            flag=false;
+            flag = false;
         }
         return;
     }
@@ -35,11 +35,9 @@ Poid ParamSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int 
     ParamSubSeqWhoseSumK(i + 1, v, k, sum, arr, n);
 }
 
-
-
-///we can also do it by using functional way which means we have to return
-///something from a function instead of passing a parameter and checking
-///here we are returning true if we got the answer and stopping the other recursion calls
+/// we can also do it by using functional way which means we have to return
+/// something from a function instead of passing a parameter and checking
+/// here we are returning true if we got the answer and stopping the other recursion calls
 bool funSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
 {
     if (i == n)
@@ -57,8 +55,8 @@ bool funSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
     //*take
     v.push_back(arr[i]);
     sum = sum + arr[i];
-    ///if we get an answer we have to return true
-    ///if we get false then we have to goto not take conditon also.
+    /// if we get an answer we have to return true
+    /// if we get false then we have to goto not take conditon also.
     if (funSubSeqWhoseSumK(i + 1, v, k, sum, arr, n))
         return true;
 
@@ -66,7 +64,7 @@ bool funSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
     sum = sum - arr[i];
     v.pop_back();
 
-    ///here also same , if we get the answer then also we should return true
+    /// here also same , if we get the answer then also we should return true
     if (funSubSeqWhoseSumK(i + 1, v, k, sum, arr, n))
         return true;
     return false;
@@ -79,9 +77,8 @@ bool funSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
 ///           {  1 ,  ___  ,  1 }  , {_____ , 2 , ______}
 /// which are {take,not take,take} , {not take , take ,not take}
 
-
 //*BOTH FUNCTIONAL AND PARAMETERISED WAYS ARE CORRECT
-//*WE CAN USE ANY OFF THEM.     
+//*WE CAN USE ANY OFF THEM.
 int main()
 {
     int arr[] = {1, 2, 1};
@@ -89,5 +86,6 @@ int main()
     v.clear();
     int n = sizeof(arr) / sizeof(arr[0]);
     ParamSubSeqWhoseSumK(0, v, 2, 0, arr, n);
+    funSubSeqWhoseSumK(0, v, 2, 0, arr, n);
     return 0;
 }
