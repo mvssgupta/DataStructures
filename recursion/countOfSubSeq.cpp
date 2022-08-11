@@ -2,7 +2,7 @@
 using namespace std;
 #define debug(x) cout << #x << " " << x << endl;
 
-int countSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n)
+int countSubSeqWhoseSumK(int i, int k, int sum, int arr[], int n)
 {
     if (i == n)
     {
@@ -12,14 +12,12 @@ int countSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n
     }
 
     //*take
-    v.push_back(arr[i]);
     sum = sum + arr[i];
-    int take = countSubSeqWhoseSumK(i + 1, v, k, sum, arr, n);
+    int take = countSubSeqWhoseSumK(i + 1, k, sum, arr, n);
 
     //*not take
     sum = sum - arr[i];
-    v.pop_back();
-    int notTake = countSubSeqWhoseSumK(i + 1, v, k, sum, arr, n);
+    int notTake = countSubSeqWhoseSumK(i + 1, k, sum, arr, n);
 
     return take + notTake;
 }
@@ -33,10 +31,8 @@ int countSubSeqWhoseSumK(int i, vector<int> &v, int k, int sum, int arr[], int n
 int main()
 {
     int arr[] = {1, 2, 1};
-    vector<int> v;
-    v.clear();
     int n = sizeof(arr) / sizeof(arr[0]);
-    int res = countSubSeqWhoseSumK(0, v, 2, 0, arr, n);
+    int res = countSubSeqWhoseSumK(0, 2, 0, arr, n);
     cout << "The count of subsequences in the given array whose sum is 2 is " << res << endl;
     return 0;
 }
