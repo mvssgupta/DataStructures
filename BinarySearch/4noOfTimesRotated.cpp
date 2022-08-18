@@ -4,16 +4,24 @@ int SortArray(vector<int> v ,int start,int end){
     int mid;
     while(start<=end){
         mid = start + (end-start)/2;
+
+        /// we take (mid+1)%arrSize ,since if mid points to 
+        /// last index then mid+1 will give us segmentation error(which is arrary index our of bound)
+        /// so we are taking (mid+1)%arrSize which will not give us error
         int next = (mid+1)%v.size();
+
+        /// here also same story, if mid points to start element
+        /// then prev  = mid-1 given -1 , which causes segmentation error
+        /// so we take prev = (mid+arrSize -1)%arrSize
         int pre = (mid+v.size() - 1)%v.size();
         if(v[mid]<=v[next] && v[mid]<=v[pre]){
-            return v.size()-mid;
+            return mid;
         }
-        if(v[start] <= v[pre]){
-            start = mid+1;
+        if(v[start] <= v[mid]){
+            start = mid;
         }
-        else if(v[next] <= v[end]){
-            end = mid-1;
+        else if(v[mid] <= v[end]){
+            end = mid;
         }
     }
     return -1;
@@ -28,7 +36,8 @@ int main(){
         v.emplace_back(k);              //DYNAMIC INPUT
     }
     int result = SortArray(v,0,n-1);
-    cout<<"Number of elements need to be rotated to make the array sorted is "<<result<<endl;
+    cout<<"Index of the minimum element in the array is: "<<result<<endl;
+    cout<<"Number of elements need to be rotated clockwise to make the array sorted is "<<v.size()-result<<endl;
     return 0;
 }
 
