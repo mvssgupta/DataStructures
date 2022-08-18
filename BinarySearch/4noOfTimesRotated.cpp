@@ -1,3 +1,26 @@
+/*
+Here the intution is:-
+
+after finding the mid , we have two cases:-
+1:- we have to check whether it is smaller than it prev and next 
+elements , if it is , then we can return its index as minimum element index .
+from here , we can get the number  of elements to be rotated to make the array sorted
+as follows ---> arr.size()-the returned val gives us the number of elements to be rotated
+
+2:-If it is not our answer then we have to continue our search to find that element
+
+here we have a problem , we know we have to check the remaining array , 
+but we dont know in which side we have to search. 
+
+for that :--
+   1:- compare the first pointer and mid element if they are in sorted order(in general :ascending order)
+   then we can move our first pointer to mid and continue our search in right part of array
+   
+   2:- In else case again compare the mid and end pointer , if they were in sorted order(in general :ascending order)
+   then we have to move our end pointer to mid and continue our search in left part of array
+*/
+
+
 #include<bits/stdc++.h>
 using namespace std;
 int SortArray(vector<int> v ,int start,int end){
