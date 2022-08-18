@@ -1,5 +1,34 @@
 //!  credits: geeksforgeeks
 
+
+/*
+this is order agnostic search which means 
+we dont know whether the sorted arrary is sorted in ascending or descending order
+
+In both ascending or descending the first case is same
+which is , if the element at mid matches the search element , simply we return the index of mid
+
+for the remaining two cases the searching process changes as follows
+
+Incase of ascending order:- 
+the scenarios are :-
+	case-1:-If the search element is smaller than mid element 
+	then we have to move the end to (mid-1) position and continue our search
+	case-2:-If the search element is greater than mid element then 
+	we have to move our start pointer to (mid+1) position and continue the search
+
+Incase of descending order:- 
+the scenarios are :-
+	case-1:-If the search element is smaller than mid element 
+	then we have to move the start pointer to (mid+1) position and continue our search
+	case-2:-If the search element is greater than mid element then 
+	we have to move our end to (mid-1) position and continue the search
+
+
+If we dont find the element then we have to return -1 , which indicates that the element is not found
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 int binarySearch(int arr[], int start, int end, int x)
