@@ -69,6 +69,7 @@ int lastbinarySearch(vector<int> v, int start, int end, int sKey)
 }
 int main()
 {
+    int flag = 0;
     vector<int> v;
     int n;
     cin >> n;
@@ -94,7 +95,8 @@ int main()
     else
     {
         cout << "Element not found" << endl;
+        flag = 1;
     }
-    cout << "Count of " << skey << " is " << result2 - result1 + 1 << endl;
+    (flag==0)?cout << "Count of " << skey << " is " << result2 - result1 + 1 << endl:cout<<"Count of "<<skey<<" is 0";
     return 0;
 }
