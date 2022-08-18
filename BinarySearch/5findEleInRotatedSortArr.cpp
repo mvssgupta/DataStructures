@@ -1,3 +1,14 @@
+/*
+Here the intution is:-
+
+here we can find the minimum element index(min_index) by using the sortArray function
+then we can apply binary search from start to min_index-1 element
+and from min_index to end, which means we are breaking the 
+given rotated sorted array in to two sorted parts and performing the 
+binary search in the two parts and returning the respective index of 
+search key if found , else we are returning -1 .
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 int binarySearch(vector<int> v ,int start,int end, int sKey){
@@ -25,11 +36,11 @@ int SortArray(vector<int> v ,int start,int end){
         if(v[mid]<=v[next] && v[mid]<=v[pre]){
             return mid;
         }
-        if(v[start] < v[pre]){
-            start = mid+1;
+        if(v[start] <= v[mid]){
+            start = mid;
         }
-        else if(v[next] < v[end]){
-            end = mid-1;
+        else if(v[mid] <= v[end]){
+            end = mid;
         }
     }
     return 0;
