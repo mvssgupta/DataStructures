@@ -37,7 +37,8 @@ int find1inInfinteSortedArr(vector<int>v)
     return firstOccurence(v,start,end);
 }
 int main()
-{
+{   //the array must contain 1's in it, then only 
+    //we can find the first occurrence of 1
     vector<int> v={0,0,0,1,1};
     cout<<"First occurrence of 1 in the given infinte sorted array is at "<<find1inInfinteSortedArr(v)<<endl;
     return 0;
