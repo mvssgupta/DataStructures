@@ -1,0 +1,28 @@
+Generally stack can be used in the following scenario's:-
+
+If we have a solution to a problem in O(n^2) by using two for-loops-
+    If the inner loop is dependent on the outer loop then we can improve the solution 
+    to this problem from O(n^2) to O(n) by using stack.
+
+    inner loop dependent on outer loop as follows:-
+     
+    1) 
+    while the inner loop is from 0 to i
+    for(int i=0;i<n;i++)
+        for(int j=0;j<i;j++)
+
+    2)
+    while the inner loop is from i to 0
+    for(int i=0;i<n;i++)
+        for(int j=i;j>=0;j--)
+
+    3)
+    while the inner loop is from i to n
+    for(int i=0;i<n;i++)
+        for(int j=i;j<n;j++)
+    4) 
+    while the inner loop is from n to i
+    for(int i=0;i<n;i++)
+        for(int j=n;j>=i;j--)
+
+In the above four cases we can improve the timecomplexity from O(n^2) to O(n) by using stack.
