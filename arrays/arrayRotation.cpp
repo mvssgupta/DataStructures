@@ -4,6 +4,9 @@ using namespace std;
 
 //rotating the array in clockwise
 
+//time complexity : O(arr.size()*n) where n is number of elements need to be rotated
+//In worst case the n can be the size of the array then the timecomplexity is O(v.size()^2)
+
 vector<int> rotateArray(vector<int> &v,int n)
 {
     while(n--)
